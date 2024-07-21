@@ -1,15 +1,26 @@
 #include "../exercise.h"
 
 struct Fibonacci {
-    unsigned long long cache[128];
-    int cached;
+    unsigned long long cache[128] = {0};
+    int cached = 0;
 
     // TODO: 实现正确的缓存优化斐波那契计算
     unsigned long long get(int i) {
-        for (; false; ++cached) {
+        if(i == 0){
+        cache[0] = 0;
+        cached = 0;
+    } else if(i == 1){
+        cache[1] = 1;
+        cached = 1;
+    } else {
+        cache[0] = 0;
+        cache[1] = 1;
+        cached = 2;
+        for (; cached <= i; ++cached) {
             cache[cached] = cache[cached - 1] + cache[cached - 2];
         }
-        return cache[i];
+    }
+    return cache[i];
     }
 };
 
