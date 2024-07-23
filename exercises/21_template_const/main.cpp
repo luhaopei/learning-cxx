@@ -38,6 +38,7 @@ private:
             ASSERT(indices[i] <= shape[i], "indices[i] <= shape[i]");
             // TODO: 计算 index
         }
+        return index;
     }
 };
 
